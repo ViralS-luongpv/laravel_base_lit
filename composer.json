@@ -10,10 +10,15 @@
     "require": {
         "php": "^7.1.3",
         "backpack/crud": "^3.6",
+        "backpack/permissionmanager": "^4.0",
         "barryvdh/laravel-elfinder": "^0.4.2",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "spatie/laravel-permission": "^2.37",
+        "viralsbackpack/backpackapi": "^1.0",
+        "viralsbackpack/backpackexcel": "^1.0",
+        "viralsbackpack/backpackimageupload": "^1.0"
     },
     "require-dev": {
         "backpack/generators": "^1.2",
@@ -42,6 +47,9 @@
         "classmap": [
             "database/seeds",
             "database/factories"
+        ],
+        "files": [
+            "app/constant/permissions.php"
         ]
     },
     "autoload-dev": {
