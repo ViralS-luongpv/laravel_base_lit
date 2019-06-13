@@ -1,0 +1,19 @@
+version: '2.2'
+
+services:
+  master:
+    container_name: master
+    build: .
+    volumes:
+      - .:/var/www/master
+    ports:
+      - "8088:80"
+    links:
+      - db
+  db:
+    image: "mariadb:10.1.30"
+    environment:
+      MYSQL_ROOT_PASSWORD: "1"
+      MYSQL_DATABASE: "master"
+    ports:
+     - "31700:3306"
