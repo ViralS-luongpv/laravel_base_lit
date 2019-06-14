@@ -1,4 +1,3 @@
-cp ./../.env.example ./../.env
-cd ./..
+cp ./.env.example ./.env
 composer install
 php artisan key:generate
