@@ -37,15 +37,15 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember"> {{ trans('backpack::base.remember_me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+{{--                        <div class="form-group">--}}
+{{--                            <div>--}}
+{{--                                <div class="checkbox">--}}
+{{--                                    <label>--}}
+{{--                                        <input type="checkbox" name="remember"> {{ trans('backpack::base.remember_me') }}--}}
+{{--                                    </label>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
                         <div class="form-group">
                             <div>
@@ -57,12 +57,6 @@
                     </form>
                 </div>
             </div>
-            @if (backpack_users_have_email())
-                <div class="text-center m-t-10"><a href="{{ route('backpack.auth.password.reset') }}">{{ trans('backpack::base.forgot_your_password') }}</a></div>
-            @endif
-            @if (config('backpack.base.registration_open'))
-                <div class="text-center m-t-10"><a href="{{ route('backpack.auth.register') }}">{{ trans('backpack::base.register') }}</a></div>
-            @endif
         </div>
     </div>
 @endsection

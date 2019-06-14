@@ -16,3 +16,8 @@
 - viralsbackpack/backpackexcel
 - viralsbackpack/backpackimageupload
 - backpack/generators
+
+# Setup unit test
+- bash __testing.sh
+- php artisan config:cache
+- Để chạy unit test sử dụng câu lệnh **vendor/bin/phpunit**
