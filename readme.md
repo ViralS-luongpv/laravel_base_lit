@@ -1,8 +1,11 @@
 # Cài đặt
-- cd `project folder`
-- **bash __setup/init.sh**
-- Cấu hình database trong file env
-- **bash __setup/seed.sh**
+## Cài đặt cơ bản:
+- cp .env.example .env
+- composer install
+- php artisan key:generate
+
+## Seed base data
+- **bash __seed.sh**
 
 # Các package
 - backpack/crud
