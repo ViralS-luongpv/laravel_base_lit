@@ -23,7 +23,7 @@ jobs:
 
       - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev libsqlite3-dev
       - run: sudo docker-php-ext-install zip
-      - run: docker-php-ext-install gd
+      - run: sudo docker-php-ext-install gd
       - run: sudo pecl install xdebug -y
       - run: echo 'zend_extension="/usr/local/lib/php/extensions/no-debug-non-zts-20151012/xdebug.so"' >> /usr/local/etc/php/php.ini
       - run: echo 'xdebug.remote_port=9000' >> /usr/local/etc/php/php.ini
