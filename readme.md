@@ -3,9 +3,10 @@
 - docker-compose build
 - docker-compose up
 - bash login.sh(đăng nhập vào server docker)
+- **Url project**: localhost:8888
 
 ## Cài đặt cơ bản: (Chỉ sử dụng trên server docker)
-- **bash __init.sh** 
+- **bash __init.sh**
 
 ## Seed base data: (Chỉ sử dụng trên server docker)
 - **bash __seed.sh**
