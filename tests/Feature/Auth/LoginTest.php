@@ -22,7 +22,6 @@ class LoginTest extends TestCase
     }
 
     public function test_user_can_login_with_correct_credentials() {
-        logger('123');
         $user = factory(BackpackUser::class)->create([
             'password' => bcrypt($password = self::PASSWD),
         ]);
