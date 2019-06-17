@@ -1,6 +1,6 @@
 FROM centos:latest
 
-MAINTAINER master <pvluong0001@gmail.com>
+MAINTAINER base <pvluong0001@gmail.com>
 
 # PHP
 RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
@@ -32,13 +32,17 @@ RUN php -v
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 
+# Install PECL extensions
+RUN pecl install xdebug
+RUN docker-php-ext-enable xdebug
+
 
 ## disable permission
 #RUN echo 0 > /selinux/enforce
 #RUN setenforce 0
 
-ADD . /var/www/master
-WORKDIR /var/www/master
+ADD . /var/www/base
+WORKDIR /var/www/base
 
 EXPOSE 80
 
