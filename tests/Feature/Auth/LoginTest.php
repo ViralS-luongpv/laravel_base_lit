@@ -4,6 +4,7 @@ namespace Tests\Feature\Auth;
 
 use App\Models\BackpackUser;
 use App\User;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -11,7 +12,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class LoginTest extends TestCase
 {
-    use DatabaseTransactions;
+    use DatabaseTransactions, DatabaseMigrations;
 
     public function test_user_can_view_a_login_form()
     {
