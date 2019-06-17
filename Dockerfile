@@ -36,6 +36,7 @@ RUN mv composer.phar /usr/local/bin/composer
 #RUN echo 0 > /selinux/enforce
 #RUN setenforce 0
 
+
 ADD . /var/www/base
 WORKDIR /var/www/base
 
