@@ -41,4 +41,4 @@ WORKDIR /var/www/base
 
 EXPOSE 80
 
-CMD ["php", "-S", "0.0.0.0:80", "-t", "/var/www/master/public"]
+CMD ["php", "-S", "0.0.0.0:80", "-t", "/var/www/base/public"]
