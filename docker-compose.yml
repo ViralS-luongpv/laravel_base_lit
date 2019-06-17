@@ -9,8 +9,8 @@ services:
     ports:
       - "8888:80"
     links:
-      - database
-  database:
+      - db
+  db:
     image: "mariadb:10.1.30"
     environment:
       MYSQL_ROOT_PASSWORD: "1"
