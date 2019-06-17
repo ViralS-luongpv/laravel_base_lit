@@ -10,7 +10,7 @@
 ## Seed base data: (Chỉ sử dụng trên server docker)
 - **bash __seed.sh**
 
-# Setup unit test: (Chỉ sử dụng trên server docker)
+## Setup unit test: (Chỉ sử dụng trên server docker)
 - **bash __testing.sh**
 - Để chạy unit test sử dụng câu lệnh **vendor/bin/phpunit**
 
