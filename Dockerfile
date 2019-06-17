@@ -32,11 +32,6 @@ RUN php -v
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 
-# Install PECL extensions
-RUN pecl install xdebug
-RUN docker-php-ext-enable xdebug
-
-
 ## disable permission
 #RUN echo 0 > /selinux/enforce
 #RUN setenforce 0
