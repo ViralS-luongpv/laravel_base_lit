@@ -33,4 +33,8 @@
         <server name="DB_DATABASE" value="testing_sqlite"/>
         <env name="DB_DATABASE" value="test_database"/>
     </php>
+    <logging>
+        <log type="coverage-html" target="./__storage"
+             lowUpperBound="50" highLowerBound="80" />
+    </logging>
 </phpunit>
