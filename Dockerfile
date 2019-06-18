@@ -28,6 +28,7 @@ RUN curl -O https://dl-ssl.google.com/dl/linux/direct/mod-pagespeed-stable_curre
 
 #RUN service httpd restart
 RUN php -v
+RUN php -v
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
@@ -35,7 +36,6 @@ RUN mv composer.phar /usr/local/bin/composer
 ## disable permission
 #RUN echo 0 > /selinux/enforce
 #RUN setenforce 0
-
 
 ADD . /var/www/base
 WORKDIR /var/www/base
