@@ -40,6 +40,7 @@ RUN mv composer.phar /usr/local/bin/composer
 ADD . /var/www/base
 WORKDIR /var/www/base
 
-EXPOSE 80
+EXPOSE 80 81
 
 CMD ["php", "-S", "0.0.0.0:80", "-t", "/var/www/base/public"]
+CMD ["php", "-S", "0.0.0.0:81", "-t", "/var/www/base/__storage"]
