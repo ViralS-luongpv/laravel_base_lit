@@ -15,7 +15,7 @@ jobs:
       - run: sudo apt-get update
       - run: sudo apt-get install netcat -y
       - run: sudo apt-get install default-mysql-client -y
-      - run: sudo echo "default-authentication-plugin=mysql_native_password" >> /etc/mysql/my.cnf
+#      - run: sudo echo "default-authentication-plugin=mysql_native_password" >> /etc/mysql/my.cnf
       - run:
           # Our primary container isn't MYSQL so run a sleep command until it's ready.
           name: Waiting for MySQL to be ready
@@ -27,10 +27,32 @@ jobs:
               sleep 1
             done
             echo Failed waiting for MySQL && exit 1
-      - run:
-          name: Install MySQL CLI; Import dummy data; run an example query
-          command: |
-            mysql -h 127.0.0.1 -u root -ppassw0rd --execute="show tables;"
+      - restore_cache:
+          keys:
+            # "composer.lock" can be used if it is committed to the repo
+            - v1-dependencies-{{ checksum "composer.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      - run: composer install -n --prefer-dist
+
+      - save_cache:
+          key: v1-dependencies-{{ checksum "composer.json" }}
+          paths:
+            - ./vendor
+
+      # prepare the database
+      - run: cp .env.testing.template .env.testing
+      - run: php artisan key:generate --env=testing
+      - run: php artisan migrate --env=testing --database=testing --force
+
+      # run tests with phpunit or codecept
+      - run: ./vendor/bin/phpunit
+      - run: ./vendor/bin/phpcs
+#      - run:
+#          name: Install MySQL CLI; Import dummy data; run an example query
+#          command: |
+#            mysql -h 127.0.0.1 -u root -ppassw0rd --execute="show tables;"
 workflows:
   version: 2
   build-deploy:
