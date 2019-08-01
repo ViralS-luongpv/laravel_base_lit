@@ -30,15 +30,15 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # Using the RAM variation mitigates I/O contention
       # for database intensive operations.
-      - image: circleci/mysql:5.7-ram
+      # - image: circleci/mysql:5.7-ram
       #
       # - image: redis:2.8.19
 
     steps:
       - checkout
-      
+
       - run: sudo apt-get install default-mysql-client
-      - run: mysql -h 127.0.0.1 -u luonglit -p123@123a --execute="show tables"
+      - run: mysql -h 127.0.0.1 -u root - p123@123a --execute="show tables"
 
       - restore_cache:
           keys:
