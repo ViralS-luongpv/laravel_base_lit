@@ -8,6 +8,15 @@ jobs:
     docker:
       # Specify the version you desire here
       - image: bitnami/laravel
+      - image: bitnami/mysql
+        environment:
+          - MYSQL_PASSWORD=123@123a
+          - MYSQL_DATABASE=testing
+          - MYSQL_ROOT_HOST=%
+          - DB_HOST=127.0.0.1
+          - DB_PORT=3306
+          - MYSQL_USER=luonglit
+          - MYSQL_ROOT_PASSWORD=123@123a
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -54,8 +63,7 @@ jobs:
             - node_modules
 
       # prepare the database
-      - run: touch storage/testing.sqlite
-      - run: cp .env.example .env.testing
+      - run: cp .env.testing.template .env.testing
       - run: php artisan key:generate --env=testing
       - run: php artisan migrate --env=testing --database=testing_sqlite --force
 
