@@ -17,7 +17,7 @@ jobs:
 #          - DB_PORT=3306
 #          - MYSQL_USER=luonglit
 #          - MYSQL_ROOT_PASSWORD=123@123a
-      - image: circleci/php:7.1-apache-node-browsers # The primary container where steps are run
+      - image: circleci/php:7.3-apache-node-browsers # The primary container where steps are run
       - image: circleci/mysql:8.0.4
         environment:
           MYSQL_ROOT_PASSWORD: 123@123a
@@ -36,7 +36,17 @@ jobs:
 
     steps:
       - checkout
-
+      - run:
+        # Our primary container isn't MYSQL so run a sleep command until it's ready.
+        name: Waiting for MySQL to be ready
+        command: |
+          for i in `seq 1 10`;
+          do
+            nc -z 127.0.0.1 3306 && echo Success && exit 0
+            echo -n .
+            sleep 1
+          done
+          echo Failed waiting for MySQL && exit 1
       - run: sudo apt-get install default-mysql-client
       - run: mysql -h 127.0.0.1 -u root -p123@123a --execute="show tables;"
 
