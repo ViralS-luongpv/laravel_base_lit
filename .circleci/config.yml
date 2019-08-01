@@ -38,7 +38,7 @@ jobs:
       - checkout
 
       - run: sudo apt-get install default-mysql-client
-      - run: mysql -h 127.0.0.1 -u root - p123@123a --execute="show tables"
+      - run: mysql -u root - p123@123a --execute="show tables;"
 
       - restore_cache:
           keys:
@@ -55,7 +55,6 @@ jobs:
             - ./vendor
 
       # prepare the database
-      - run: mysql -u root -p 123@123a -e 'show databases;'
       - run: cp .env.testing.template .env.testing
       - run: php artisan key:generate --env=testing
       - run: php artisan migrate --env=testing --force
