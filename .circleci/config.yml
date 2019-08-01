@@ -54,6 +54,7 @@ jobs:
             - ./vendor
 
       # prepare the database
+      - run: mysql -v
       - run: cp .env.testing.template .env.testing
       - run: php artisan key:generate --env=testing
       - run: php artisan migrate --env=testing --force
