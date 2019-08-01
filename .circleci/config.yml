@@ -38,7 +38,7 @@ jobs:
       - checkout
 
       - run: sudo apt-get install default-mysql-client
-      - run: mysql -uroot -p123@123a --execute="show tables;"
+      - run: mysql -h 127.0.0.1 -u root -p123@123a --execute="show tables;"
 
       - restore_cache:
           keys:
