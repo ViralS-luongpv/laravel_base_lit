@@ -5,10 +5,10 @@ jobs:
       - image: bitnami/laravel # The primary container where steps are run
       - image: bitnami/mysql
         environment:
-          MYSQL_ROOT_PASSWORD: passw0rd
+          MYSQL_ROOT_PASSWORD: 123@123a
           MYSQL_DATABASE: testing
           MYSQL_USER: luonglit
-          MYSQL_PASSWORD: passw0rd
+          MYSQL_PASSWORD: 123@123a
 
     steps:
       - checkout
