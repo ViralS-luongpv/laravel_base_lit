@@ -7,16 +7,23 @@ jobs:
   build:
     docker:
       # Specify the version you desire here
-      - image: bitnami/laravel
-      - image: bitnami/mysql
+#      - image: bitnami/laravel
+#      - image: bitnami/mysql
+#        environment:
+#          - MYSQL_PASSWORD=123@123a
+#          - MYSQL_DATABASE=testing
+#          - MYSQL_ROOT_HOST=%
+#          - DB_HOST=127.0.0.1
+#          - DB_PORT=3306
+#          - MYSQL_USER=luonglit
+#          - MYSQL_ROOT_PASSWORD=123@123a
+      - image: circleci/php:7.1-apache-node-browsers # The primary container where steps are run
+      - image: circleci/mysql:8.0.4
         environment:
-          - MYSQL_PASSWORD=123@123a
-          - MYSQL_DATABASE=testing
-          - MYSQL_ROOT_HOST=%
-          - DB_HOST=127.0.0.1
-          - DB_PORT=3306
-          - MYSQL_USER=luonglit
-          - MYSQL_ROOT_PASSWORD=123@123a
+          MYSQL_ROOT_PASSWORD: 123@123a
+          MYSQL_DATABASE: testing
+          MYSQL_USER: luonglit
+          MYSQL_PASSWORD: 123@123a
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
