@@ -4,6 +4,7 @@ jobs:
     docker:
       - image: bitnami/laravel # The primary container where steps are run
       - image: bitnami/mysql
+        entrypoint: ['docker-entrypoint.sh', '--default-authentication-plugin=mysql_native_password']
         environment:
           MYSQL_ROOT_PASSWORD: 123@123a
           MYSQL_DATABASE: testing
