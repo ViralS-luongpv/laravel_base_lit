@@ -44,7 +44,7 @@ jobs:
       # prepare the database
       - run: cp .env.testing.template .env.testing
       - run: php artisan key:generate --env=testing
-      - run: php artisan migrate --env=testing --database=testing --force
+      - run: php artisan migrate --env=testing --database=testing_mysql --force
 
       # run tests with phpunit or codecept
       - run: ./vendor/bin/phpunit
