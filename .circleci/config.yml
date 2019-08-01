@@ -54,7 +54,7 @@ jobs:
             - ./vendor
 
       # prepare the database
-      - run: mysqld --version
+      - run: mysql -u root -p 123@123a -e 'show databases;'
       - run: cp .env.testing.template .env.testing
       - run: php artisan key:generate --env=testing
       - run: php artisan migrate --env=testing --force
