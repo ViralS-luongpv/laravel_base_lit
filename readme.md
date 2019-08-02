@@ -26,13 +26,11 @@
 - Các url:
     + url ứng dụng: `localhost:8080` (có thể thay đổi bằng cách thay đổi file cấu hình `docker-compose.yml` trong thư mục `docker`)
     + url code coverage: `localhost:8081` (có thể thay đổi bằng cách thay đổi file cấu hình `docker-compose.yml` trong thư mục `docker`)
-    
 - Cách kết nối với database sử dụng GUI:
     + host: `localhost` (127.0.0.1)
     + port: `13579` (có thể thay đổi bằng cách thay đổi file cấu hình `docker-compose.yml` trong thư mục `docker`)
     + u/p: `root/123@123a` hoặc `luonglit/123@123a`
     + database: `mydb` hoặc `testing`
-    
 - Thao tác với docker: (sử dụng tại thư mục `docker` bên ngoài local machine **không phải trong server docker**)
     + rebuild lại docker: `make build`
     + start docker container: `make start`
