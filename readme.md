@@ -1,4 +1,4 @@
-#1. Cài đặt
+# 1. Cài đặt
 ## 1.1 Clone project
 
 ## 1.2 Cài đặt môi trường(docker) (Yêu cầu đã install docker và docker-compose)
@@ -10,19 +10,19 @@
 - **bash __seed.sh** `migrate + seed data`
 - **bash __testing.sh** `config for unit test`
 
-#2. Cách sử dụng: (Chỉ sử dụng trên server docker và trong thư mục project)
+# 2. Cách sử dụng: (Chỉ sử dụng trên server docker và trong thư mục project)
 - Để chạy phpcs sử dụng câu lệnh `vendor/bin/phpcs`
 - Auto fix một số lỗi cơ bản phpcs sử dụng câu lệnh `vendor/bin/phpcbf`
 - Để chạy unit test sử dụng câu lệnh `vendor/bin/phpunit`
 
-#3. Các package
+# 3. Các package
 - backpack/crud
 - backpack/permissionmanager
 - barryvdh/laravel-elfinder
 - spatie/laravel-permission
 - backpack/generators
 
-#4. Tricks
+# 4. Tricks
 - Các url:
     + url ứng dụng: `localhost:8080` (có thể thay đổi bằng cách thay đổi file cấu hình `docker-compose.yml` trong thư mục `docker`)
     + url code coverage: `localhost:8081` (có thể thay đổi bằng cách thay đổi file cấu hình `docker-compose.yml` trong thư mục `docker`)
