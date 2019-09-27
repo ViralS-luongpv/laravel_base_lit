@@ -12,6 +12,8 @@ RUN apt-get update -y && apt-get install -y sendmail libpng-dev
 
 RUN docker-php-ext-install mbstring gd pdo_mysql zip
 
+RUN apt-get install cron -y
+
 #ENV XDEBUG_CONFIG remote_host=192.168.0.106 remote_port=9001
 # Install and enable xDebug
 RUN pecl install xdebug
@@ -42,7 +44,8 @@ RUN composer
 #RUN echo "xdebug.remote_autostart=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 # docker nginx ip adress
 
-CMD ["php-fpm"]
+COPY ./scripts/entrypoint.sh /
+ENTRYPOINT /entrypoint.sh
 
 WORKDIR /var/www/base
 
