@@ -45,8 +45,11 @@ RUN composer
 # docker nginx ip adress
 
 COPY ./scripts/entrypoint.sh /
-ENTRYPOINT /entrypoint.sh
+# ENTRYPOINT /entrypoint.sh
+ENTRYPOINT ["sh", "/entrypoint.sh"]
 
 WORKDIR /var/www/base
+
+RUN chown -R www-data:www-data /var/www/base
 
 EXPOSE 9000
